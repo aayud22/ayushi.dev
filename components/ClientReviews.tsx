@@ -14,7 +14,7 @@ const REVIEWS = [
     id: 1,
     name: "Alex Johnson",
     role: "Product Manager at TechCorp",
-    image: "/images/clients/client1.jpg", // You'll need to add these images to your public folder
+    image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // You'll need to add these images to your public folder
     text: "Ayushi delivered our website redesign ahead of schedule. Her attention to detail and creative approach transformed our online presence. The animations and responsive design are exactly what we needed.",
     rating: 5,
   },
@@ -22,7 +22,7 @@ const REVIEWS = [
     id: 2,
     name: "Sarah Williams",
     role: "Founder of CreativeStudio",
-    image: "/images/clients/client2.jpg",
+    image: "https://images.unsplash.com/photo-1529701870190-9ae4010fd124?q=80&w=1402&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     text: "Working with Ayushi was a fantastic experience. She understood our vision immediately and created a website that perfectly represents our brand. Her technical skills and design sensibility are top-notch.",
     rating: 5,
   },
@@ -30,7 +30,7 @@ const REVIEWS = [
     id: 3,
     name: "Michael Chen",
     role: "CTO at StartupInnovate",
-    image: "/images/clients/client3.jpg",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     text: "Ayushi's work on our web application exceeded our expectations. Her code is clean, well-documented, and the UI/UX design shows a deep understanding of user behavior. Would definitely hire again!",
     rating: 5,
   },
@@ -38,7 +38,7 @@ const REVIEWS = [
     id: 4,
     name: "Emily Rodriguez",
     role: "Marketing Director at BrandGrowth",
-    image: "/images/clients/client4.jpg",
+    image: "https://images.unsplash.com/photo-1648412868424-9bee5023a257?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     text: "The portfolio website Ayushi created for our agency has received countless compliments. Her ability to blend aesthetics with functionality resulted in a site that not only looks beautiful but converts visitors to clients.",
     rating: 5,
   },
@@ -48,14 +48,17 @@ export default function ClientReviews() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const visibleReviews = 3; // Number of reviews visible at once
+  const visibleReviews = Math.min(3, REVIEWS.length); // Number of reviews visible at once, capped by total reviews
 
   // Auto-rotate reviews
   useEffect(() => {
     if (isPaused) return;
     
+    const maxIndex = Math.max(0, REVIEWS.length - visibleReviews);
+    if (maxIndex <= 0) return; // Don't auto-rotate if all reviews fit on screen
+    
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % (REVIEWS.length - visibleReviews + 1));
+      setActiveIndex((current) => (current + 1) % (maxIndex + 1));
     }, 5000);
     
     return () => clearInterval(interval);
@@ -69,8 +72,9 @@ export default function ClientReviews() {
   };
 
   const handleNext = () => {
+    const maxIndex = Math.max(0, REVIEWS.length - visibleReviews);
     setActiveIndex((current) => 
-      Math.min(current + 1, REVIEWS.length - visibleReviews)
+      Math.min(current + 1, maxIndex)
     );
     setIsPaused(true);
     // Resume auto-rotation after 10 seconds of inactivity
@@ -148,12 +152,12 @@ export default function ClientReviews() {
               
               <motion.button
                 onClick={handleNext}
-                disabled={activeIndex >= REVIEWS.length - visibleReviews}
+                disabled={activeIndex >= Math.max(0, REVIEWS.length - visibleReviews)}
                 className={`p-2 rounded-full bg-white dark:bg-secondary-800 shadow-md ${
-                  activeIndex >= REVIEWS.length - visibleReviews ? "opacity-50 cursor-not-allowed" : "hover:scale-110"
+                  activeIndex >= Math.max(0, REVIEWS.length - visibleReviews) ? "opacity-50 cursor-not-allowed" : "hover:scale-110"
                 }`}
-                whileHover={{ scale: activeIndex >= REVIEWS.length - visibleReviews ? 1 : 1.1 }}
-                whileTap={{ scale: activeIndex >= REVIEWS.length - visibleReviews ? 1 : 0.95 }}
+                whileHover={{ scale: activeIndex >= Math.max(0, REVIEWS.length - visibleReviews) ? 1 : 1.1 }}
+                whileTap={{ scale: activeIndex >= Math.max(0, REVIEWS.length - visibleReviews) ? 1 : 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <FiChevronRight className="text-primary-500" size={24} />
@@ -214,7 +218,7 @@ export default function ClientReviews() {
 
             {/* Carousel indicators */}
             <div className="flex justify-center mt-6 gap-2">
-              {Array.from({ length: REVIEWS.length - visibleReviews + 1 }).map((_, index) => (
+              {Array.from({ length: Math.max(1, REVIEWS.length - visibleReviews + 1) }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => {
