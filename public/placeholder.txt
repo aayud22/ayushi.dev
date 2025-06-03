@@ -1,0 +1,18 @@
+This file is a placeholder. In a real project, you would replace these with actual images:
+
+- profile.jpg - A professional headshot for the About section
+- project1.jpg through project6.jpg - Images showcasing your projects
+- map.jpg - A map image for the contact section
+
+For testing purposes, you can use placeholder image services like:
+- https://picsum.photos/
+- https://placeholder.com/
+- https://placehold.co/
+
+Example usage in Next.js Image component:
+<Image 
+  src="https://picsum.photos/600/400" 
+  alt="Project" 
+  width={600} 
+  height={400} 
+/>
