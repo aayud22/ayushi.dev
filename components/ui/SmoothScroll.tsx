@@ -1,7 +1,6 @@
 "use client";
-
 import { ReactNode, useRef, useEffect } from "react";
-import { useAnimationSettings } from "./animations/AnimationProvider";
+import { useAnimationSettings } from "../animations/AnimationProvider";
 
 interface SmoothScrollProps {
   children: ReactNode;
