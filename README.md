@@ -10,7 +10,6 @@ A modern, responsive portfolio website built with Next.js (App Router) and Tailw
 - **Form Validation**: Contact form with validation using React Hook Form
 - **Clean Component Structure**: Each section is organized as a separate component
 - **Performance Optimized**: Built with Next.js for optimal loading speed and SEO
-- **Figma Compatible**: Code structure compatible with Figma to Windsurf exports
 
 ## Sections
 
