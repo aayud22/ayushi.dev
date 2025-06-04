@@ -1,10 +1,9 @@
 "use client";
-
 import { m as motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import { fadeInUp, staggerContainer, fadeIn } from "@/utils/animations";
 import HeroBackground from "./HeroBackground";
-import TypewriterText from "./TypewriterText";
+import TypewriterText from "../animations/TypewriterText";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 export default function Hero() {
   return (
@@ -134,6 +133,7 @@ export default function Hero() {
                 <FiArrowRight className="ml-2" />
               </motion.span>
             </motion.a>
+
             <motion.a
               href="#contact"
               className="btn-secondary"

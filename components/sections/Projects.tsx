@@ -1,15 +1,9 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import { m as motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiGithub, FiCode } from "react-icons/fi";
-import {
-  fadeInUp,
-  staggerContainer,
-  listItem,
-  scaleUp,
-} from "@/utils/animations";
+import { fadeInUp, staggerContainer, listItem } from "@/utils/animations";
 
 const projects = [
   {

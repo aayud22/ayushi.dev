@@ -2,17 +2,17 @@
 import { useState, useRef } from "react";
 import {
   FiMail,
-  FiMapPin,
-  FiPhone,
   FiSend,
+  FiPhone,
+  FiMapPin,
   FiCheckCircle,
 } from "react-icons/fi";
 import { useForm } from "react-hook-form";
-import SectionTransition from "./SectionTransition";
-import StaggeredContainer from "./StaggeredContainer";
-import { useAnimationSettings } from "./AnimationProvider";
+import SectionTransition from "../animations/SectionTransition";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import StaggeredContainer from "../animations/StaggeredContainer";
 import { getRgbaColor, PRIMARY_COLORS_RGB } from "@/utils/colors";
+import { useAnimationSettings } from "../animations/AnimationProvider";
 import { m as motion, useInView, AnimatePresence } from "framer-motion";
 import { fadeInUp, slideInLeft, slideInRight } from "@/utils/animations";
 
@@ -197,12 +197,12 @@ export default function Contact() {
                       Phone
                     </h4>
                     <motion.a
-                      href="tel:+1234567890"
+                      href="tel:+918780684875"
                       className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors inline-block"
                       whileHover={{ x: 2 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      +1 (234) 567-890
+                      +91 8780684875
                     </motion.a>
                   </div>
                 </div>
@@ -222,23 +222,11 @@ export default function Contact() {
                       Location
                     </h4>
                     <p className="text-secondary-600 dark:text-secondary-400">
-                      San Francisco, California
+                      Surat, Gujarat, India
                     </p>
                   </div>
                 </div>
               </StaggeredContainer>
-
-              {/* Map or additional image */}
-              <div className="mt-8 h-48 bg-secondary-200 dark:bg-secondary-700 rounded-lg overflow-hidden">
-                <motion.div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{
-                    backgroundImage: "url('/images/map.jpg')",
-                  }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              </div>
             </div>
           </motion.div>
 
@@ -297,12 +285,16 @@ export default function Contact() {
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <StaggeredContainer delay={0.1} staggerDelay={0.1}>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
+                    <StaggeredContainer
+                      delay={0.1}
+                      staggerDelay={0.1}
+                      className="space-y-6"
+                    >
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="space-y-2">
                           <label
                             htmlFor="name"
-                            className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1"
+                            className="block text-sm font-medium text-secondary-700 dark:text-secondary-300"
                           >
                             Name
                           </label>
@@ -340,10 +332,10 @@ export default function Contact() {
                           )}
                         </div>
 
-                        <div>
+                        <div className="space-y-2">
                           <label
                             htmlFor="email"
-                            className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1"
+                            className="block text-sm font-medium text-secondary-700 dark:text-secondary-300"
                           >
                             Email
                           </label>
@@ -387,10 +379,10 @@ export default function Contact() {
                         </div>
                       </div>
 
-                      <div>
+                      <div className="space-y-2">
                         <label
                           htmlFor="subject"
-                          className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1"
+                          className="block text-sm font-medium text-secondary-700 dark:text-secondary-300"
                         >
                           Subject
                         </label>
@@ -428,10 +420,10 @@ export default function Contact() {
                         )}
                       </div>
 
-                      <div>
+                      <div className="space-y-2">
                         <label
                           htmlFor="message"
-                          className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1"
+                          className="block text-sm font-medium text-secondary-700 dark:text-secondary-300"
                         >
                           Message
                         </label>

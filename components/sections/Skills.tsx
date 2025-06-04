@@ -1,21 +1,19 @@
 "use client";
-
 import { m as motion, useInView } from "framer-motion";
 import {
   FiCode,
-  FiLayout,
-  FiDatabase,
-  FiServer,
-  FiGlobe,
-  FiSmartphone,
   FiTool,
+  FiGlobe,
+  FiLayout,
+  FiServer,
+  FiDatabase,
   FiGitBranch,
+  FiSmartphone,
 } from "react-icons/fi";
 import { useRef } from "react";
-import { useAnimationSettings } from "./AnimationProvider";
-import StaggeredContainer from "./StaggeredContainer";
-import SectionTransition from "./SectionTransition";
-import { fadeInUp, staggerContainer } from "@/utils/animations";
+import SectionTransition from "../animations/SectionTransition";
+import StaggeredContainer from "../animations/StaggeredContainer";
+import { useAnimationSettings } from "../animations/AnimationProvider";
 
 const skills = [
   {
@@ -177,7 +175,7 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <motion.div
               key={index}
-              className="card p-6 group relative overflow-hidden"
+              className="card p-6 group relative overflow-hidden h-full flex flex-col"
               whileHover={{
                 y: -5,
                 transition: { type: "spring", stiffness: 300, damping: 20 },

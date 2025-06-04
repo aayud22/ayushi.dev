@@ -1,13 +1,12 @@
 "use client";
-
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import CursorFollow from "@/components/CursorFollow";
-import PageTransition from "@/components/PageTransition";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import AnimationProvider from "@/components/AnimationProvider";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import CursorFollow from "@/components/ui/CursorFollow";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import PageTransition from "@/components/animations/PageTransition";
+import AnimationProvider from "@/components/animations/AnimationProvider";
+import AnimatedBackground from "@/components/animations/AnimatedBackground";
 
 interface ClientLayoutProps {
   children: React.ReactNode;

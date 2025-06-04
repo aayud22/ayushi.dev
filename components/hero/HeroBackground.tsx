@@ -1,13 +1,12 @@
 "use client";
 
 import { useRef, useEffect, useState, useCallback } from "react";
-import { useAnimationSettings } from "./AnimationProvider";
 import {
-  getThemeAwareColor,
   getRgbaColor,
   PRIMARY_COLORS_RGB,
   SECONDARY_COLORS_RGB,
-} from "../utils/colors";
+} from "@/utils/colors";
+import { useAnimationSettings } from "../animations/AnimationProvider";
 
 // Tech-themed elements to display
 const TECH_ELEMENTS = [

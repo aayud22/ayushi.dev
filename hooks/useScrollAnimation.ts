@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, RefObject } from "react";
-import { useAnimationSettings } from "@/components/AnimationProvider";
+import { useAnimationSettings } from "@/components/animations/AnimationProvider";
 
 interface ScrollAnimationOptions {
   threshold?: number;
@@ -12,12 +12,8 @@ interface ScrollAnimationOptions {
 export function useScrollAnimation<T extends HTMLElement>(
   options: ScrollAnimationOptions = {}
 ): [RefObject<T>, boolean] {
-  const { 
-    threshold = 0.1, 
-    once = true,
-    rootMargin = "-100px 0px"
-  } = options;
-  
+  const { threshold = 0.1, once = true, rootMargin = "-100px 0px" } = options;
+
   const { prefersReducedMotion, isLoaded } = useAnimationSettings();
   const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
@@ -79,22 +75,22 @@ export function useParallaxScroll<T extends HTMLElement>(
 
     const handleScroll = () => {
       if (!ref.current) return;
-      
+
       const { top } = ref.current.getBoundingClientRect();
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      
+
       // Only apply parallax when element is in view
       if (top < windowHeight && top > -ref.current.offsetHeight) {
         // Calculate parallax offset based on element position
-        const newOffset = ((top - windowHeight) * speed);
+        const newOffset = (top - windowHeight) * speed;
         setOffset(newOffset);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial calculation
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
