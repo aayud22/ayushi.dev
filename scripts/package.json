@@ -1,0 +1,24 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "Utility scripts for the portfolio chatbot",
+  "main": "ingest-data.ts",
+  "scripts": {
+    "ingest": "ts-node ingest-data.ts",
+    "setup-db": "ts-node setup-db.ts",
+    "test-chat": "ts-node test-chat.ts",
+    "dev": "ts-node-dev --respawn --transpile-only ingest-data.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1",
+    "openai": "^4.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node-dev": "^2.0.0"
+  },
+  "type": "module"
+}
