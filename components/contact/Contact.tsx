@@ -6,7 +6,10 @@ import {
   FiPhone,
   FiMapPin,
   FiCheckCircle,
+  FiMessageSquare,
 } from "react-icons/fi";
+import { FaPaperPlane } from "react-icons/fa";
+import { RiMailSendLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import SectionTransition from "../animations/SectionTransition";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -45,20 +48,42 @@ export default function Contact() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    setIsSubmitting(true);
+    try {
+      setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    console.log("Form submitted:", data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    reset();
+      const result = await response.json();
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      // Show success message
+      setIsSubmitted(true);
+      reset();
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Show error message
+      alert(
+        error instanceof Error
+          ? error.message
+          : "Failed to send message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -252,31 +277,78 @@ export default function Contact() {
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
-                    className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md p-4 flex items-center text-green-700 dark:text-green-400"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
+                    className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-900/20 border border-green-200/50 dark:border-green-800/50 rounded-xl p-6 max-w-md mx-auto shadow-lg backdrop-blur-sm"
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 30,
-                        delay: 0.2,
-                      }}
-                    >
-                      <FiCheckCircle className="w-5 h-5 mr-3" />
-                    </motion.div>
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.3 }}
-                    >
-                      Thank you! Your message has been sent successfully.
-                    </motion.span>
+                    <div className="flex flex-col items-center text-center">
+                      <motion.div
+                        className="relative mb-4"
+                        initial={{ scale: 0, rotate: -30 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 600,
+                          damping: 15,
+                          delay: 0.1,
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-green-200/30 dark:bg-green-800/30 rounded-full scale-125 animate-pulse"></div>
+                        <div className="relative z-10 p-4 bg-green-500 text-white rounded-2xl shadow-lg">
+                          <RiMailSendLine className="w-10 h-10" />
+                        </div>
+                        <motion.div
+                          className="absolute -top-2 -right-2 bg-white dark:bg-green-900 rounded-full p-1 shadow-md"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{
+                            delay: 0.3,
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 10,
+                          }}
+                        >
+                          <FiCheckCircle className="w-5 h-5 text-green-500" />
+                        </motion.div>
+                      </motion.div>
+
+                      <motion.h3
+                        className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2"
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        Message Sent!
+                      </motion.h3>
+
+                      <motion.p
+                        className="text-green-700/90 dark:text-green-300/90 text-sm leading-relaxed"
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        Thank you for reaching out! I've received your message
+                        and will get back to you soon.
+                      </motion.p>
+
+                      <motion.div
+                        className="w-16 h-1 bg-green-200 dark:bg-green-800/50 rounded-full my-4"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                      />
+
+                      <motion.p
+                        className="text-xs text-green-600/80 dark:text-green-400/80 mt-2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        I typically respond within 24 hours.
+                      </motion.p>
+                    </div>
                   </motion.div>
                 ) : (
                   <motion.form
