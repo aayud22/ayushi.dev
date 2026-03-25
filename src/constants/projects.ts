@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
     id: 2,
     title: "Sky Cast Weather App",
     description: "A sleek weather app that provides a 5-day forecast using OpenWeatherMap, built with Next.js and TypeScript.",
-    image: "/images/sky_cast.png",
+    image: "/images//sky_cast.jpg",
     tags: ["Next.js", "TypeScript", "Vercel", "OpenWeather API"],
     liveUrl: "https://sky-cast-omega-gilt.vercel.app/",
     githubUrl: "https://github.com/aayud22/sky-cast",
