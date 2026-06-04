@@ -17,7 +17,7 @@ function ProjectCard({ p }: { p: Project }) {
       <div className="group relative aspect-video w-full overflow-hidden bg-slate-50 border-b border-slate-100">
         <Image
           fill
-          alt={p?.title}
+          alt={p?.title || "Project thumbnail"}
           src={imgSrc || FALLBACK_IMAGE}
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"

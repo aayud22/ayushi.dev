@@ -10,26 +10,28 @@ export function HeroSection() {
       <Container>
         <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start lg:text-left">
           <div className="w-full md:flex-1 text-center lg:text-left">
-            <div className="text-black flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
-              <span className="font-normal text-2xl sm:text-4xl md:text-5xl">
-                Hello!
+            <h1 className="flex flex-col gap-2">
+              <span className="text-black flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
+                <span className="font-normal text-2xl sm:text-4xl md:text-5xl">
+                  Hello!
+                </span>
+                <span
+                  className="wave font-normal text-2xl sm:text-4xl md:text-5xl"
+                  aria-hidden
+                >
+                  👋
+                </span>
               </span>
-              <span
-                className="wave font-normal text-2xl sm:text-4xl md:text-5xl"
-                aria-hidden
-              >
-                👋
-              </span>
-            </div>
 
-            <div className="text-black flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
-              <span className="font-normal text-2xl sm:text-4xl md:text-5xl">
-                I&apos;m
+              <span className="text-black flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
+                <span className="font-normal text-2xl sm:text-4xl md:text-5xl">
+                  I&apos;m
+                </span>
+                <span className="font-extrabold text-2xl sm:text-4xl md:text-5xl">
+                  Ayushie
+                </span>
               </span>
-              <span className="font-extrabold text-2xl sm:text-4xl md:text-5xl">
-                Ayushie
-              </span>
-            </div>
+            </h1>
 
             <div className="mt-4 text-black flex flex-wrap items-baseline justify-center lg:justify-start gap-x-3 gap-y-2 min-h-12 sm:min-h-14">
               <Typewriter
@@ -55,7 +57,7 @@ export function HeroSection() {
             <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
                 className="inline-flex h-11 items-center justify-center rounded-sm bg-slate-900 hover:bg-transparent hover:text-black px-5 text-sm font-semibold text-white transition-colors duration-200 border border-black"
-                href="/cv.pdf"
+                href="/images/ayushi_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >

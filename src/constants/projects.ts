@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
     id: 2,
     title: "Sky Cast Weather App",
     description: "A sleek weather app that provides a 5-day forecast using OpenWeatherMap, built with Next.js and TypeScript.",
-    image: "/images//sky_cast.jpg",
+    image: "/images/sky_cast.jpg",
     tags: ["Next.js", "TypeScript", "Vercel", "OpenWeather API"],
     liveUrl: "https://sky-cast-omega-gilt.vercel.app/",
     githubUrl: "https://github.com/aayud22/sky-cast",
@@ -44,5 +44,14 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "framer-motion", "UI/UX"],
     liveUrl: "https://prod-grow-chief-nine.vercel.app/",
     githubUrl: "",
+  },
+  {
+    id: 5,
+    title: "ScrapeSmart AI",
+    description: "Paste any website URL and ask questions. ScrapeSmart AI reads the page and answers with concise, helpful responses.",
+    image: "/images/scrape_smart_AI.jpg",
+    tags: ["Next.js", "AI", "Tailwind CSS", "Web Scraping"],
+    liveUrl: "https://scrape-smart-ai.vercel.app/",
+    githubUrl: "https://github.com/aayud22/scrape-smart-ai-chatbot-frontend-v2.0",
   }
 ];
