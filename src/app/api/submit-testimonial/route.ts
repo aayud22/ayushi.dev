@@ -13,29 +13,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    );
-
-    const { error: supabaseError } = await supabase
-      .from("testimonials")
-      .insert([
-        {
-          name: name.trim(),
-          position: position?.trim() || null,
-          message: message.trim(),
-          rating: parseInt(rating) || 5,
-          approved: false,
-        },
-      ]);
-
-    if (supabaseError) {
-      console.error("Supabase Error:", supabaseError);
-      throw new Error("Database error");
-    }
-
-    // Send email notification
+    // 1. Send email notification first (so if this fails, we don't save to DB)
     if (process.env.SMTP_HOST) {
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
@@ -60,6 +38,29 @@ export async function POST(req: NextRequest) {
           <p>${message}</p>
         `,
       });
+    }
+
+    // 2. If email succeeded (or isn't configured), insert into database
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    );
+
+    const { error: supabaseError } = await supabase
+      .from("testimonials")
+      .insert([
+        {
+          name: name.trim(),
+          position: position?.trim() || null,
+          message: message.trim(),
+          rating: parseInt(rating) || 5,
+          approved: false,
+        },
+      ]);
+
+    if (supabaseError) {
+      console.error("Supabase Error:", supabaseError);
+      throw new Error("Database error");
     }
 
     return NextResponse.json({

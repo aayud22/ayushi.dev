@@ -35,11 +35,14 @@ export default function TestimonialForm() {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', position: '', message: '', rating: '5' });
+        setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
       }
     } catch (error) {
       setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
     }
   };
 
