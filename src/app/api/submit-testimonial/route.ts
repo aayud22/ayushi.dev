@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
 
       await transporter.sendMail({
         from: process.env.SMTP_USER,
-        to: process.env.YOUR_EMAIL,
+        to: process.env.MAIL_TO,
         subject: `New Testimonial from ${name}`,
         html: `
           <h2>New Testimonial Received</h2>
