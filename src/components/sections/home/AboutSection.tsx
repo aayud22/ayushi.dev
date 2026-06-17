@@ -2,6 +2,17 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 
 export function AboutSection() {
+  const startDate = new Date("2022-06-06");
+  const currentDate = new Date();
+  let yearsOfExperience = currentDate.getFullYear() - startDate.getFullYear();
+  
+  if (
+    currentDate.getMonth() < startDate.getMonth() ||
+    (currentDate.getMonth() === startDate.getMonth() && currentDate.getDate() < startDate.getDate())
+  ) {
+    yearsOfExperience--;
+  }
+
   return (
     <section id="about" className="py-16">
       <Container>
@@ -20,7 +31,7 @@ export function AboutSection() {
               About <span className="font-extrabold">Me</span>
             </h2>
             <div className="mt-4 flex flex-col gap-4 text-sm leading-7 text-slate-600">
-              <span className="block">With over 3 years of experience as a MERN Stack Developer, I design and develop full-stack applications that are fast, scalable, and built for real-world use.</span>
+              <span className="block">With over {yearsOfExperience} years of experience as a MERN Stack Developer, I design and develop full-stack applications that are fast, scalable, and built for real-world use.</span>
               <span className="block">Leveraging technologies like React.js, Next.js, Tailwind CSS, Node.js, and MongoDB, I&apos;ve delivered solutions ranging from complex dashboards to interactive platforms.</span>
               <span className="block">My approach combines clean, maintainable code with secure backend architecture—ensuring every product is reliable, efficient, and user-centric.</span>
             </div>
