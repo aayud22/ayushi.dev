@@ -30,8 +30,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ayushie",
+    url: "https://ayushi-dev.vercel.app/",
+    image: "https://ayushi-dev.vercel.app/images/hero_banner.jpg",
+    jobTitle: "Next.js & MERN Stack Developer",
+    knowsAbout: ["Next.js", "React", "Node.js", "MongoDB", "Express.js", "Tailwind CSS", "TypeScript"],
+    sameAs: [
+      "https://github.com/aayud22",
+    ],
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
         {children}
         <Analytics />
