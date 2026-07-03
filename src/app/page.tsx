@@ -12,7 +12,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export default function Home() {
   return (
     <PageLayout>
-      <main id="top" className="w-full">
+      <main id="top" className="w-full flex-1">
         <CursorRings/>
         <HeroSection />
         <ScrollReveal>

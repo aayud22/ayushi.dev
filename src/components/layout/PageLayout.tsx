@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 
 export function PageLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden flex flex-col">
       <SiteHeader />
       {children}
       <SiteFooter />
