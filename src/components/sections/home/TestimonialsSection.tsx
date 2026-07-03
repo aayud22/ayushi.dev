@@ -48,6 +48,10 @@ export function TestimonialsSection() {
     fetchTestimonials();
   }, []);
 
+  if (!loading && testimonials.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-16">
       <Container>
