@@ -14,15 +14,15 @@ export default function NotFound() {
               </span>
               <div className="h-1 w-16 bg-slate-900 mx-auto rounded-full mt-4"></div>
             </div>
-            
+
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
               Oops! Page Not Found
             </h1>
-            
+
             <p className="text-base leading-7 text-slate-600 mb-10 max-w-md mx-auto">
               The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
             </p>
-            
+
             <Link
               href="/"
               className="inline-flex h-11 items-center justify-center rounded-sm bg-slate-900 px-8 text-sm font-semibold text-white transition-colors duration-200 border border-black hover:bg-transparent hover:text-black"
