@@ -14,7 +14,7 @@ export function HeroSection() {
                 Hi, I&apos;m Ayushi
               </h1>
               <p className="mt-4 text-2xl md:text-3xl text-slate-600 font-light">
-                Senior Web Developer & AI Integrator
+                Full Stack Developer & Next.js Expert
               </p>
             </div>
 
@@ -64,7 +64,7 @@ export function HeroSection() {
                 width={800}
                 height={800}
                 src="/images/hero_banner.jpg"
-                alt="Ayushi - Senior Web Developer"
+                alt="Ayushi - Full Stack Developer"
                 className="object-cover w-full h-full"
               />
             </div>
