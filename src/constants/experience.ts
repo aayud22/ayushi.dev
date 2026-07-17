@@ -10,14 +10,15 @@ export type ExperienceItem = {
 export const EXPERIENCE: ExperienceItem[] = [
   {
     company: "CodeAlchemy Pvt Ltd",
-    role: "Front-End Developer",
-    location: "Surat",
+    role: "Senior Front-End Developer",
+    location: "Surat, Gujarat",
     start: "April 2022",
     end: "Present",
     bullets: [
-      "Designed and developed responsive web apps including dashboards, document portals, and social platforms.",
-      "Collaborated with cross-functional teams to build pixel-perfect UIs and ensure seamless backend integration.",
-      "Ensured high code quality through testing, reviews, and performance tuning.",
+      "Led frontend development for multiple client projects, delivering responsive dashboards and web applications using React, Next.js, and Tailwind CSS.",
+      "Improved application performance by 40% through code optimization and modern architecture.",
+      "Collaborated with cross-functional teams to build pixel-perfect UIs and seamless backend integrations.",
+      "Mentored junior developers and established coding standards for the frontend team.",
     ],
   },
 ];
