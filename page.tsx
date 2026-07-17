@@ -7,7 +7,7 @@ import { SkillsSection } from "@/components/sections/home/SkillsSection";
 import { ContactSection } from "@/components/sections/home/ContactSection";
 import { ProjectsSection } from "@/components/sections/home/ProjectsSection";
 import { ExperienceSection } from "@/components/sections/home/ExperienceSection";
-import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
+// import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
         <ScrollReveal>
           <ProjectsSection />
         </ScrollReveal>
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <ScrollReveal>
           <ContactSection />
         </ScrollReveal>
