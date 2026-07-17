@@ -49,17 +49,17 @@ function ExperienceItem({ item }: { item: ExperienceItem }) {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-slate-950 py-16">
+    <section id="experience" className="bg-slate-950 py-20">
       <Container>
-        <div className="mx-auto mb-10 text-center">
-          <h2 className="text-2xl font-medium tracking-tight text-white sm:text-3xl">
-            My <span className="font-extrabold">Experience</span>
+        <div className="mx-auto mb-12 text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-white">
+            Professional <span className="text-slate-400">Journey</span>
           </h2>
         </div>
 
         <div className="space-y-8">
           {EXPERIENCE?.map((item) => (
-            <ExperienceItem key={`${item.company}-${item.role}-${item.start}`} item={item} />
+            <ExperienceItem key={`${item.company}-${item.role}`} item={item} />
           ))}
         </div>
       </Container>
