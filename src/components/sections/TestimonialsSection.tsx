@@ -5,10 +5,11 @@ import { createClient } from '@supabase/supabase-js';
 import { Container } from "@/components/layout/Container";
 import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = (supabaseUrl && supabaseKey)
+  ? createClient(supabaseUrl, supabaseKey)
+  : null;
 
 type TestimonialItem = {
   name: string;
@@ -22,6 +23,11 @@ export function TestimonialsSection() {
 
   useEffect(() => {
     async function fetchTestimonials() {
+      if (!supabase) {
+        console.warn("Missing Supabase credentials. Testimonials will not be loaded.");
+        setLoading(false);
+        return;
+      }
       try {
         const { data, error } = await supabase
           .from('testimonials')
@@ -48,7 +54,7 @@ export function TestimonialsSection() {
     fetchTestimonials();
   }, []);
 
-  if (!loading && testimonials.length === 0) {
+  if (testimonials.length === 0) {
     return null;
   }
 
@@ -57,22 +63,12 @@ export function TestimonialsSection() {
       <Container>
         <div className="mx-auto mb-10 text-center">
           <h2 className="text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">
-            My <span className="font-extrabold">Testimonial</span>
+            My <span className="font-extrabold">Testimonials</span>
           </h2>
           <p className="text-slate-600 mt-2">What clients say about working with me</p>
         </div>
 
-        {loading ? (
-          <div className="flex justify-center py-12">
-            <p className="text-slate-500">Loading testimonials...</p>
-          </div>
-        ) : testimonials.length > 0 ? (
-          <TestimonialsMarquee items={testimonials} />
-        ) : (
-          <div className="text-center py-12 text-slate-500">
-            No testimonials yet. Be the first to leave one!
-          </div>
-        )}
+        <TestimonialsMarquee items={testimonials} />
       </Container>
     </section>
   );

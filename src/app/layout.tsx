@@ -2,14 +2,16 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
+const SITE_TITLE = "Ayushi | Full Stack Developer & Next.js Expert";
+
 export const metadata: Metadata = {
-  title: "Ayushie | Full Stack Developer & Next.js Expert",
+  title: SITE_TITLE,
   description:
-    "Portfolio of Ayushie, a passionate Full Stack Developer with 3+ years of experience building performant, scalable web applications using the MERN stack, Next.js, and TypeScript.",
-  keywords: ["Ayushie", "Full Stack Developer", "Next.js", "React", "MERN Stack", "Frontend Developer", "Backend Developer", "Software Engineer", "Surat", "Gujarat"],
-  authors: [{ name: "Ayushie", url: "https://ayushi-dev.vercel.app/" }],
-  creator: "Ayushie",
-  publisher: "Ayushie",
+    "Portfolio of Ayushi, a passionate Full Stack Developer with 3+ years of experience building performant, scalable web applications using the MERN stack, Next.js, and TypeScript.",
+  keywords: ["Ayushi", "Full Stack Developer", "Next.js", "React", "MERN Stack", "Frontend Developer", "Backend Developer", "Software Engineer", "Surat", "Gujarat"],
+  authors: [{ name: "Ayushi", url: "https://ayushi-dev.vercel.app/" }],
+  creator: "Ayushi",
+  publisher: "Ayushi",
   formatDetection: {
     email: false,
     address: false,
@@ -19,16 +21,16 @@ export const metadata: Metadata = {
     canonical: "https://ayushi-dev.vercel.app/",
   },
   openGraph: {
-    title: "Ayushie | Full Stack Developer",
+    title: SITE_TITLE,
     description: "Check out my latest web development projects, skills, and experience as a Full Stack Developer.",
     url: "https://ayushi-dev.vercel.app/",
-    siteName: "Ayushie's Portfolio",
+    siteName: "Ayushi's Portfolio",
     images: [
       {
         url: "https://ayushi-dev.vercel.app/images/hero_banner.jpg",
         width: 1200,
         height: 630,
-        alt: "Ayushie Portfolio Preview",
+        alt: "Ayushi Portfolio Preview",
       },
     ],
     locale: "en_US",
@@ -36,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayushie | Full Stack Developer",
-    description: "Portfolio of Ayushie, a passionate Full Stack Developer building performant web apps.",
+    title: SITE_TITLE,
+    description: "Portfolio of Ayushi, a passionate Full Stack Developer building performant web apps.",
     images: ["https://ayushi-dev.vercel.app/images/hero_banner.jpg"],
   },
   // GEO (Geographic) Optimization
@@ -58,7 +60,7 @@ export default function RootLayout({
   const personSchema = {
     "@context": "https://schema.org",
     "@type": ["Person", "ProfilePage"],
-    name: "Ayushie",
+    name: "Ayushi",
     url: "https://ayushi-dev.vercel.app/",
     image: "https://ayushi-dev.vercel.app/images/hero_banner.jpg",
     jobTitle: "Full Stack Developer",
@@ -72,7 +74,7 @@ export default function RootLayout({
     knowsAbout: ["Next.js", "React", "Node.js", "MongoDB", "Express.js", "Tailwind CSS", "TypeScript", "Full Stack Development", "MERN Stack"],
     sameAs: [
       "https://github.com/aayud22",
-      "https://www.linkedin.com/in/ayushie-diyora-0aa453208/"
+      "https://www.linkedin.com/in/ayushi-diyora-0aa453208/"
     ],
     email: "aayushid81@gmail.com"
   };
@@ -83,15 +85,15 @@ export default function RootLayout({
     mainEntity: [
       {
         "@type": "Question",
-        name: "Who is Ayushie?",
+        name: "Who is Ayushi?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ayushie is a passionate Full Stack Developer and Next.js expert based in Surat, Gujarat. She specializes in the MERN stack and building scalable, performant web applications."
+          text: "Ayushi is a passionate Full Stack Developer and Next.js expert based in Surat, Gujarat. She specializes in the MERN stack and building scalable, performant web applications."
         }
       },
       {
         "@type": "Question",
-        name: "What are Ayushie's core skills?",
+        name: "What are Ayushi's core skills?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Her core skills include React, Next.js, Node.js, Express.js, MongoDB, TypeScript, and Tailwind CSS."
@@ -99,10 +101,10 @@ export default function RootLayout({
       },
       {
         "@type": "Question",
-        name: "Is Ayushie available for Full Stack Developer roles?",
+        name: "Is Ayushi available for Full Stack Developer roles?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes, Ayushie is actively looking for new opportunities as a Full Stack Developer. She is based in Surat but is open to remote work globally."
+          text: "Yes, Ayushi is actively looking for new opportunities as a Full Stack Developer. She is based in Surat but is open to remote work globally."
         }
       }
     ]

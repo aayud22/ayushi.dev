@@ -14,7 +14,7 @@ export function SiteHeader() {
       <Container>
         <div className="flex h-16 w-full items-center justify-between">
           <a href="#top" className="text-sm font-semibold text-slate-900">
-            Ayushie.dev
+            Ayushi.dev
           </a>
 
           <nav className="hidden items-center gap-6 md:flex">

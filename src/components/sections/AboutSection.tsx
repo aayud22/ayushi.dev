@@ -1,19 +1,9 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
+import { getYearsOfExperience } from "@/constants/experience";
 
 export function AboutSection() {
-  const startDate = new Date("2022-06-06");
-  const currentDate = new Date();
-  let yearsOfExperience = currentDate.getFullYear() - startDate.getFullYear();
-
-  if (
-    currentDate.getMonth() < startDate.getMonth() ||
-    (currentDate.getMonth() === startDate.getMonth() &&
-      currentDate.getDate() < startDate.getDate())
-  ) {
-    yearsOfExperience--;
-  }
-
+  const yearsOfExperience = getYearsOfExperience();
   return (
     <section id="about" className="py-20 bg-white">
       <Container>
@@ -25,7 +15,7 @@ export function AboutSection() {
                 fill
                 className="object-cover"
                 src="/images/about_banner.jpg"
-                alt="Ayushie working on laptop"
+                alt="Ayushi working on laptop"
               />
             </div>
           </div>

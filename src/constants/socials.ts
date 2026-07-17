@@ -12,7 +12,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/aayud22", icon: Github },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/ayushie-diyora-0aa453208/",
+    href: "https://www.linkedin.com/in/ayushi-diyora-0aa453208/",
     icon: Linkedin,
   },
 ];

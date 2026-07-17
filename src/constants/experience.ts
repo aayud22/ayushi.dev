@@ -22,3 +22,19 @@ export const EXPERIENCE: ExperienceItem[] = [
     ],
   },
 ];
+export const CAREER_START_DATE = new Date("2022-06-06");
+
+export function getYearsOfExperience() {
+  const currentDate = new Date();
+  let years = currentDate.getFullYear() - CAREER_START_DATE.getFullYear();
+
+  if (
+    currentDate.getMonth() < CAREER_START_DATE.getMonth() ||
+    (currentDate.getMonth() === CAREER_START_DATE.getMonth() &&
+      currentDate.getDate() < CAREER_START_DATE.getDate())
+  ) {
+    years--;
+  }
+
+  return years;
+}

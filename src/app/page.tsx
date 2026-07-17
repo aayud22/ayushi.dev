@@ -1,13 +1,13 @@
 import CursorRings from "@/components/ui/CursorRings";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { HeroSection } from "@/components/sections/home/HeroSection";
-import { AboutSection } from "@/components/sections/home/AboutSection";
-import { SkillsSection } from "@/components/sections/home/SkillsSection";
-import { ContactSection } from "@/components/sections/home/ContactSection";
-import { ProjectsSection } from "@/components/sections/home/ProjectsSection";
-import { ExperienceSection } from "@/components/sections/home/ExperienceSection";
-// import { TestimonialsSection } from "@/components/sections/home/TestimonialsSection";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+// import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export default function Home() {
   return (
