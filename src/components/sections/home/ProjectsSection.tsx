@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { PROJECTS } from "@/constants";
-import { Pill } from "@/components/ui/Pill";
 import type { Project } from "@/constants/projects";
+import { PROJECTS, SOCIAL_LINKS } from "@/constants";
 import { Container } from "@/components/layout/Container";
 
-const FALLBACK_IMAGE = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2Y4ZmFmYyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzk0YTNiOCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pjwvc3ZnPg==";
+const FALLBACK_IMAGE =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2Y4ZmFmYyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZmlsbD0iIzk0YTNiOCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pjwvc3ZnPg==";
 
 function ProjectCard({ p }: { p: Project }) {
   const [imgSrc, setImgSrc] = useState(p?.image);
@@ -43,7 +43,12 @@ function ProjectCard({ p }: { p: Project }) {
 
         <div className="mt-5 flex flex-wrap gap-2">
           {p?.tags?.map((t) => (
-            <Pill key={t}>{t}</Pill>
+            <span
+              key={t}
+              className="inline-flex cursor-pointer items-center rounded-full bg-black/5 px-3 py-1 text-xs font-medium text-black hover:bg-black hover:text-white transition-colors"
+            >
+              {t}
+            </span>
           ))}
         </div>
 
@@ -76,18 +81,32 @@ function ProjectCard({ p }: { p: Project }) {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-20 bg-white">
       <Container>
-        <div className="mx-auto mb-10 text-center">
-          <h2 className="text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">
-            My <span className="font-extrabold">Projects</span>
+        <div className="mx-auto mb-12 text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-black">
+            Selected <span className="text-slate-400">Work</span>
           </h2>
+          <p className="mt-3 text-slate-600 max-w-md mx-auto">
+            Real projects that solved real problems. From concept to production.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS?.map((p) => (
             <ProjectCard key={p?.id} p={p} />
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={SOCIAL_LINKS[1].href}
+            className="text-sm text-slate-600 hover:text-black underline"
+          >
+            View all projects on GitHub →
+          </a>
         </div>
       </Container>
     </section>
