@@ -16,13 +16,13 @@ export default function Home() {
         <CursorRings />
         <HeroSection />
         <ScrollReveal>
+          <AboutSection />
+        </ScrollReveal>
+        <ScrollReveal>
           <SkillsSection />
         </ScrollReveal>
         <ScrollReveal>
           <ExperienceSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <AboutSection />
         </ScrollReveal>
         <ScrollReveal>
           <ProjectsSection />
