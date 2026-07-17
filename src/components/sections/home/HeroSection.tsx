@@ -1,103 +1,76 @@
 import Image from "next/image";
-import { SOCIAL_LINKS } from "@/constants";
-import { getExternalLinkProps } from "@/lib/links";
-import { Typewriter } from "@/components/Typewriter";
 import { Container } from "@/components/layout/Container";
 
 export function HeroSection() {
   return (
-    <section className="py-14 md:py-20">
+    <section className="py-16 md:py-24 bg-white">
       <Container>
-        <div className="flex w-full flex-col items-center gap-10 lg:flex-row lg:items-start lg:text-left">
-          <div className="w-full md:flex-1 text-center lg:text-left">
-            <h1 className="flex flex-col gap-2">
-              <span className="text-black flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
-                <span className="font-normal text-2xl sm:text-4xl md:text-5xl">
-                  Hello!
-                </span>
-                <span
-                  className="wave font-normal text-2xl sm:text-4xl md:text-5xl"
-                  aria-hidden
-                >
-                  👋
-                </span>
-              </span>
-
-              <span className="text-black flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-2">
-                <span className="font-normal text-2xl sm:text-4xl md:text-5xl">
-                  I&apos;m
-                </span>
-                <span className="font-extrabold text-2xl sm:text-4xl md:text-5xl">
-                  Ayushie
-                </span>
-              </span>
-            </h1>
-
-            <div className="mt-4 text-black flex flex-wrap items-baseline justify-center lg:justify-start gap-x-3 gap-y-2 min-h-12 sm:min-h-14">
-              <Typewriter
-                className="font-normal text-2xl sm:text-4xl md:text-5xl"
-                words={["React Developer", "MERN Developer", "Problem Solver"]}
-              />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-black">
+                Hi, I&apos;m Ayushie
+              </h1>
+              <p className="mt-4 text-2xl md:text-3xl text-slate-600 font-light">
+                Senior Web Developer & AI Integrator
+              </p>
             </div>
 
-            <div className="md:mt-4 mt-0 flex justify-center lg:justify-start">
-              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-slate-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm sm:px-4 sm:py-2 sm:text-sm">
-                <span className="font-semibold">3+ Years</span>
-                <span className="text-white/80">
-                  Experience in Web Development
-                </span>
-              </span>
-            </div>
-
-            <p className="mt-4 max-w-lg mx-auto lg:mx-0 text-sm leading-7 text-slate-600 sm:text-base">
-              I build delightful, performant web experiences with Next.js, React,
-              and Tailwind CSS.
+            <p className="text-lg text-slate-600 max-w-lg">
+              I craft fast, scalable, and delightful digital experiences using
+              Next.js, React, and modern AI tools. With 3+ years of experience,
+              I turn complex problems into clean, high-performance solutions.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <div className="flex flex-wrap gap-4">
               <a
-                className="inline-flex h-11 items-center justify-center rounded-sm bg-slate-900 hover:bg-transparent hover:text-black px-5 text-sm font-semibold text-white transition-colors duration-200 border border-black"
-                href="/images/ayushi_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#projects"
+                className="px-8 py-3.5 bg-black text-white font-medium rounded-xl hover:bg-slate-800 transition-colors"
               >
-                Download CV
+                View My Projects
               </a>
+
               <a
-                className="inline-flex h-11 items-center justify-center rounded-sm border border-black bg-white px-5 text-sm font-semibold text-slate-900 transition-colors duration-200 hover:bg-black hover:text-white"
                 href="#contact"
+                className="px-8 py-3.5 border border-black font-medium rounded-xl hover:bg-black hover:text-white transition-colors"
               >
-                Contact Me
+                Let&apos;s Collaborate
               </a>
             </div>
 
-            <div className="mt-8 flex items-center justify-center lg:justify-start gap-3">
-              {SOCIAL_LINKS?.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    aria-label={s.label}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-sm border border-black bg-white text-black hover:bg-black hover:text-white transition-colors duration-200"
-                    {...getExternalLinkProps(s.href)}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
+            <div className="pt-4 flex items-center gap-6 text-sm text-slate-500">
+              <div className="flex items-center gap-2">
+                <p className="text-sm text-slate-600">
+                  {Math.floor(
+                    (new Date().getTime() - new Date("2022-06-06").getTime()) /
+                      (1000 * 60 * 60 * 24 * 365.25),
+                  )}
+                  + Years Experience
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span>Open to new opportunities</span>
+              </div>
             </div>
           </div>
 
-          <div className="mx-auto aspect-auto w-full max-w-150 overflow-hidden rounded-3xl bg-slate-50 md:flex-1">
-            <Image
-              priority
-              width={800}
-              height={800}
-              alt="Illustration"
-              src="/images/hero_banner.jpg"
-              className="object-cover w-full h-full"
-            />
+          {/* Right Image */}
+          <div className="relative">
+            <div className="aspect-square overflow-hidden rounded-3xl bg-slate-100">
+              <Image
+                priority
+                width={800}
+                height={800}
+                src="/images/hero_banner.jpg"
+                alt="Ayushie - Senior Web Developer"
+                className="object-cover w-full h-full"
+              />
+            </div>
           </div>
         </div>
       </Container>
