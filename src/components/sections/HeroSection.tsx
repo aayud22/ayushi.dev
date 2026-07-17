@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
+import { getYearsOfExperience } from "@/constants/experience";
 
 export function HeroSection() {
   return (
@@ -10,7 +11,7 @@ export function HeroSection() {
           <div className="space-y-8">
             <div>
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-black">
-                Hi, I&apos;m Ayushie
+                Hi, I&apos;m Ayushi
               </h1>
               <p className="mt-4 text-2xl md:text-3xl text-slate-600 font-light">
                 Senior Web Developer & AI Integrator
@@ -19,8 +20,8 @@ export function HeroSection() {
 
             <p className="text-lg text-slate-600 max-w-lg">
               I craft fast, scalable, and delightful digital experiences using
-              Next.js, React, and modern AI tools. With 3+ years of experience,
-              I turn complex problems into clean, high-performance solutions.
+              Next.js, React, and modern AI tools. I turn complex problems into
+              clean, high-performance solutions.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -42,11 +43,7 @@ export function HeroSection() {
             <div className="pt-4 flex items-center gap-6 text-sm text-slate-500">
               <div className="flex items-center gap-2">
                 <p className="text-sm text-slate-600">
-                  {Math.floor(
-                    (new Date().getTime() - new Date("2022-06-06").getTime()) /
-                      (1000 * 60 * 60 * 24 * 365.25),
-                  )}
-                  + Years Experience
+                  {getYearsOfExperience()}+ Years Experience
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -67,7 +64,7 @@ export function HeroSection() {
                 width={800}
                 height={800}
                 src="/images/hero_banner.jpg"
-                alt="Ayushie - Senior Web Developer"
+                alt="Ayushi - Senior Web Developer"
                 className="object-cover w-full h-full"
               />
             </div>

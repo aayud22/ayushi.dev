@@ -8,7 +8,7 @@ export function SiteFooter() {
       <Container>
         <div className="flex w-full flex-col items-center justify-between gap-3 py-8 md:flex-row">
           <p className="text-xs text-white">
-            © {new Date().getFullYear()} Ayushie. All rights reserved.
+            © {new Date().getFullYear()} Ayushi. All rights reserved.
           </p>
           <div className="flex items-center gap-3">
             {SOCIAL_LINKS.slice(0, 3).map((s) => {
