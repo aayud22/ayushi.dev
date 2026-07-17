@@ -1,13 +1,16 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { getYearsOfExperience } from "@/constants/experience";
 
 const SITE_TITLE = "Ayushi | Full Stack Developer & Next.js Expert";
+const JOB_TITLE = "Full Stack Developer & Next.js Expert";
+const yearsExp = getYearsOfExperience();
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
   description:
-    "Portfolio of Ayushi, a passionate Full Stack Developer with 3+ years of experience building performant, scalable web applications using the MERN stack, Next.js, and TypeScript.",
+    `Portfolio of Ayushi, a passionate ${JOB_TITLE} with ${yearsExp}+ years of experience building performant, scalable web applications using the MERN stack, Next.js, and TypeScript.`,
   keywords: ["Ayushi", "Full Stack Developer", "Next.js", "React", "MERN Stack", "Frontend Developer", "Backend Developer", "Software Engineer", "Surat", "Gujarat"],
   authors: [{ name: "Ayushi", url: "https://ayushi-dev.vercel.app/" }],
   creator: "Ayushi",
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: SITE_TITLE,
-    description: "Check out my latest web development projects, skills, and experience as a Full Stack Developer.",
+    description: `Check out my latest web development projects, skills, and experience as a ${JOB_TITLE}.`,
     url: "https://ayushi-dev.vercel.app/",
     siteName: "Ayushi's Portfolio",
     images: [
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
-    description: "Portfolio of Ayushi, a passionate Full Stack Developer building performant web apps.",
+    description: `Portfolio of Ayushi, a passionate ${JOB_TITLE} building performant web apps.`,
     images: ["https://ayushi-dev.vercel.app/images/hero_banner.jpg"],
   },
   // GEO (Geographic) Optimization
@@ -63,8 +66,8 @@ export default function RootLayout({
     name: "Ayushi",
     url: "https://ayushi-dev.vercel.app/",
     image: "https://ayushi-dev.vercel.app/images/hero_banner.jpg",
-    jobTitle: "Full Stack Developer",
-    description: "A passionate Full Stack Developer and Next.js expert based in Surat, Gujarat. Specializes in MERN stack and building performant web applications.",
+    jobTitle: JOB_TITLE,
+    description: `A passionate ${JOB_TITLE} based in Surat, Gujarat. Specializes in MERN stack and building performant web applications.`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Surat",
@@ -88,7 +91,7 @@ export default function RootLayout({
         name: "Who is Ayushi?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ayushi is a passionate Full Stack Developer and Next.js expert based in Surat, Gujarat. She specializes in the MERN stack and building scalable, performant web applications."
+          text: `Ayushi is a passionate ${JOB_TITLE} based in Surat, Gujarat. She specializes in the MERN stack and building scalable, performant web applications.`
         }
       },
       {
