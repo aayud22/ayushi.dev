@@ -16,6 +16,7 @@ export function AboutSection() {
                 className="object-cover"
                 src="/images/about_banner.jpg"
                 alt="Ayushi working on laptop"
+                sizes="(min-width: 1152px) 576px, (min-width: 1024px) 50vw, (min-width: 640px) 576px, 100vw"
               />
             </div>
           </div>

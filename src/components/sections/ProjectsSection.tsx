@@ -19,7 +19,7 @@ function ProjectCard({ p }: { p: Project }) {
           fill
           alt={p?.title || "Project thumbnail"}
           src={imgSrc || FALLBACK_IMAGE}
-          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          sizes="(min-width: 1152px) 384px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           onError={() => {
             setImgSrc(FALLBACK_IMAGE);

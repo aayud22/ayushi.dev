@@ -5,54 +5,27 @@ export interface Skill {
   detail?: string;
 }
 
-export interface SkillCategory {
-  title: string;
-  skills: Skill[];
-}
+export const CORE_SKILLS: Skill[] = [
+  { name: "React.js", detail: "Reusable components, hooks, state, performance" },
+  { name: "Next.js", detail: "App Router, routing, SSR/SSG, SEO" },
+  { name: "TypeScript", detail: "Types, interfaces, safer refactors" },
+  { name: "Tailwind CSS", detail: "Responsive UI with utility-first styling" },
+  { name: "Node.js", detail: "Server-side logic, async workflows" },
+  { name: "MongoDB", detail: "Schema design, queries, aggregation" },
+];
 
-export const SKILLS_DATA: SkillCategory[] = [
-  {
-    title: "Frontend",
-    skills: [
-      { name: "React.js", detail: "Reusable components, hooks, state, performance" },
-      { name: "Next.js", detail: "App Router, routing, SSR/SSG, SEO" },
-      { name: "Redux Toolkit", detail: "Predictable state management and slices" },
-      { name: "TailwindCSS", detail: "Responsive UI with utility-first styling" },
-      { name: "Material UI", detail: "MUI components, theming, rapid UI builds" },
-    ],
-  },
-  {
-    title: "Backend",
-    skills: [
-      { name: "Node.js", detail: "Server-side logic, async workflows" },
-      { name: "Express.js", detail: "Routes, middleware, API architecture" },
-      { name: "REST APIs", detail: "CRUD endpoints, validation, error handling" },
-      { name: "WebSockets", detail: "Real-time features and live updates" },
-      { name: "JWT", detail: "Auth, protected routes, token-based sessions" },
-    ],
-  },
-  {
-    title: "Database",
-    skills: [
-      { name: "MongoDB", detail: "Schema design, queries, aggregation" },
-      { name: "Firebase", detail: "Auth, Firestore, hosting & integrations" },
-      { name: "Supabase", detail: "Postgres, auth, storage, realtime" },
-    ],
-  },
-  {
-    title: "Tools",
-    skills: [
-      { name: "Git", detail: "Branching, PR workflow, code reviews" },
-      { name: "Postman", detail: "API testing, collections, environments" },
-      { name: "Vercel", detail: "Next.js deployments, previews, CI/CD" },
-      { name: "Render", detail: "Backend deployment & managed services" },
-    ],
-  },
-  {
-    title: "Languages",
-    skills: [
-      { name: "JavaScript", detail: "ES6+, async/await, clean code" },
-      { name: "TypeScript", detail: "Types, interfaces, safer refactors" },
-    ],
-  },
+export const SECONDARY_SKILLS: Skill[] = [
+  { name: "JavaScript", detail: "ES6+, async/await, clean code" },
+  { name: "Redux Toolkit", detail: "Predictable state management and slices" },
+  { name: "Material UI", detail: "MUI components, theming, rapid UI builds" },
+  { name: "Express.js", detail: "Routes, middleware, API architecture" },
+  { name: "WebSockets", detail: "Real-time features and live updates" },
+  { name: "JWT", detail: "Auth, protected routes, token-based sessions" },
+  { name: "Firebase", detail: "Auth, Firestore, hosting & integrations" },
+  { name: "Supabase", detail: "Postgres, auth, storage, realtime" },
+  { name: "Git", detail: "Branching, PR workflow, code reviews" },
+  { name: "Postman", detail: "API testing, collections, environments" },
+  { name: "Vercel", detail: "Next.js deployments, previews, CI/CD" },
+  { name: "Render", detail: "Backend deployment & managed services" },
+  { name: "REST APIs", detail: "CRUD endpoints, validation, error handling" },
 ];

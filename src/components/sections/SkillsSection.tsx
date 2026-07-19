@@ -8,7 +8,7 @@ import {
   Terminal,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SKILLS_DATA } from "@/constants";
+import { CORE_SKILLS, SECONDARY_SKILLS } from "@/constants";
 import { Container } from "@/components/layout/Container";
 
 function getSkillIcon(name: string) {
@@ -36,62 +36,65 @@ export function SkillsSection() {
           </h2>
         </div>
 
-        <div className="flex flex-col gap-6 md:flex-row md:flex-wrap">
-          {SKILLS_DATA.map((cat) => (
-            <div
-              key={cat.title}
-              className="w-full rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:flex-1 md:min-w-80"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  {cat.title}
-                </h3>
-                <span className="text-xs font-medium text-slate-500">
-                  {cat.skills.length}
-                </span>
+        {/* Core Skills */}
+        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          {CORE_SKILLS.map((skill) => {
+            const Icon = getSkillIcon(skill.name);
+            const tooltipId = `core-${skill.name}`
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/(^-|-$)/g, "");
+
+            return (
+              <div
+                key={skill.name}
+                className={cn(
+                  "group relative inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm transition-all duration-200",
+                  "hover:border-slate-900 hover:bg-slate-950 hover:text-white hover:shadow-md",
+                  "focus-within:border-slate-900 focus-within:bg-slate-950 focus-within:text-white",
+                )}
+              >
+                <div
+                  className="inline-flex items-center gap-2"
+                  tabIndex={0}
+                  aria-describedby={skill.detail ? tooltipId : undefined}
+                >
+                  <Icon className="h-4 w-4 text-slate-700 transition-colors duration-200 group-hover:text-white group-focus-within:text-white" />
+                  <span>{skill.name}</span>
+                </div>
+
+                {skill.detail ? (
+                  <div
+                    id={tooltipId}
+                    role="tooltip"
+                    className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-max max-w-[200px] -translate-x-1/2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs leading-5 text-slate-700 opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100 text-center"
+                  >
+                    {skill.detail}
+                  </div>
+                ) : null}
               </div>
+            );
+          })}
+        </div>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {cat.skills.map((skill) => {
-                  const Icon = getSkillIcon(skill.name);
-                  const tooltipId = `${cat.title}-${skill.name}`
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/(^-|-$)/g, "");
-
-                  return (
-                    <span
-                      key={`${cat.title}-${skill.name}`}
-                      className={cn(
-                        "group relative inline-flex cursor-pointer items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 transition-colors duration-200",
-                        "hover:border-slate-900 hover:bg-slate-950 hover:text-white",
-                        "focus-within:border-slate-900 focus-within:bg-slate-950 focus-within:text-white",
-                      )}
-                    >
-                      <span
-                        className="inline-flex items-center gap-2"
-                        tabIndex={0}
-                        aria-describedby={skill.detail ? tooltipId : undefined}
-                      >
-                        <Icon className="h-4 w-4 text-slate-700 transition-colors duration-200 group-hover:text-white group-focus-within:text-white" />
-                        <span>{skill.name}</span>
-                      </span>
-
-                      {skill.detail ? (
-                        <span
-                          id={tooltipId}
-                          role="tooltip"
-                          className="pointer-events-none absolute left-0 top-full z-10 mt-2 w-[calc(100vw-2rem)] max-w-56 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs leading-5 text-slate-700 opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100 sm:left-1/2 sm:-translate-x-1/2"
-                        >
-                          {skill.detail}
-                        </span>
-                      ) : null}
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+        {/* Secondary Skills */}
+        <div className="mt-12 text-center max-w-2xl mx-auto">
+          <p className="text-sm text-slate-500 mb-4">
+            Also familiar with:
+          </p>
+          <ul
+            className="flex flex-wrap justify-center gap-2"
+            aria-label="Secondary Skills"
+          >
+            {SECONDARY_SKILLS.map((skill) => (
+              <li
+                key={skill.name}
+                className="inline-flex items-center rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-500 border border-slate-100"
+              >
+                {skill.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </section>
