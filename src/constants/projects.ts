@@ -6,6 +6,8 @@ export interface Project {
   tags: string[];
   liveUrl: string;
   githubUrl: string;
+  hasCaseStudy?: boolean;
+  caseStudyUrl?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -17,6 +19,8 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "TypeScript", "AI", "Web Scraping"],
     liveUrl: "https://scrape-smart-ai.vercel.app/",
     githubUrl: "https://github.com/aayud22/scrape-smart-ai-chatbot-frontend-v2.0",
+    hasCaseStudy: true,
+    caseStudyUrl: "/projects/scrapesmart-ai",
   },
   {
     id: 2,
@@ -26,6 +30,8 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Framer Motion", "UI/UX Design"],
     liveUrl: "https://prod-grow-chief-nine.vercel.app/",
     githubUrl: "",
+    hasCaseStudy: false,
+    caseStudyUrl: "",
   },
   {
     id: 3,
@@ -35,5 +41,7 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Tailwind", "Framer Motion"],
     liveUrl: "https://ayushi-dev.vercel.app/",
     githubUrl: "https://github.com/aayud22/ayushi.dev",
+    hasCaseStudy: false,
+    caseStudyUrl: "",
   }
 ];

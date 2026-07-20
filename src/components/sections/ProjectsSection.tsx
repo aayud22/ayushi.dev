@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/constants/projects";
 import { PROJECTS, SOCIAL_LINKS } from "@/constants";
@@ -17,13 +18,11 @@ function ProjectCard({ p }: { p: Project }) {
       <div className="group relative aspect-video w-full overflow-hidden bg-slate-50 border-b border-slate-100">
         <Image
           fill
-          alt={p?.title || "Project thumbnail"}
           src={imgSrc || FALLBACK_IMAGE}
-          sizes="(min-width: 1152px) 384px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          alt={p?.title || "Project thumbnail"}
+          onError={() => setImgSrc(FALLBACK_IMAGE)}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={() => {
-            setImgSrc(FALLBACK_IMAGE);
-          }}
+          sizes="(min-width: 1152px) 384px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
         />
       </div>
 
@@ -58,7 +57,7 @@ function ProjectCard({ p }: { p: Project }) {
               target="_blank"
               href={p?.liveUrl}
               rel="noopener noreferrer"
-              className="inline-flex h-10 flex-1 items-center justify-center rounded-sm bg-slate-900 hover:bg-transparent hover:text-black px-3 text-sm font-semibold text-white transition-colors duration-200 border border-black text-center"
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-sm bg-slate-900 hover:bg-transparent hover:text-black px-3 text-sm font-semibold text-white transition-colors duration-200 border border-black text-center whitespace-nowrap"
             >
               Live Demo
             </a>
@@ -68,10 +67,18 @@ function ProjectCard({ p }: { p: Project }) {
               target="_blank"
               href={p?.githubUrl}
               rel="noopener noreferrer"
-              className="inline-flex h-10 flex-1 items-center justify-center rounded-sm border border-black bg-white px-3 text-sm font-semibold text-slate-900 transition-colors duration-200 hover:bg-black hover:text-white text-center"
+              className="inline-flex h-10 flex-1 items-center justify-center rounded-sm border border-black bg-white px-3 text-sm font-semibold text-slate-900 transition-colors duration-200 hover:bg-black hover:text-white text-center whitespace-nowrap"
             >
               GitHub
             </a>
+          )}
+          {p?.hasCaseStudy && p?.caseStudyUrl && (
+            <Link
+              href={p.caseStudyUrl}
+              className="inline-flex h-10 flex-[1_1_100%] sm:flex-1 items-center justify-center rounded-sm border border-black bg-white px-3 text-sm font-semibold text-slate-900 transition-colors duration-200 hover:bg-black hover:text-white text-center whitespace-nowrap"
+            >
+              View Case Study
+            </Link>
           )}
         </div>
       </div>
