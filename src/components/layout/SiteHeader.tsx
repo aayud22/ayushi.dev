@@ -13,21 +13,21 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur">
       <Container>
         <div className="flex h-16 w-full items-center justify-between">
-          <a href="#top" className="text-sm font-semibold text-slate-900">
+          <a href="/#top" className="text-sm font-semibold text-slate-900">
             Ayushi.dev
           </a>
 
           <nav className="hidden items-center gap-6 md:flex">
-            <NavLink href="#about" label="About" />
-            <NavLink href="#skills" label="Skills" />
-            <NavLink href="#experience" label="Experience" />
-            <NavLink href="#projects" label="Projects" />
-            <NavLink href="#contact" label="Contact" />
+            <NavLink href="/#about" label="About" />
+            <NavLink href="/#skills" label="Skills" />
+            <NavLink href="/#experience" label="Experience" />
+            <NavLink href="/#projects" label="Projects" />
+            <NavLink href="/#contact" label="Contact" />
           </nav>
 
           <a
             className="inline-flex h-10 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-800"
-            href="#contact"
+            href="/#contact"
           >
             Hire Me
           </a>
