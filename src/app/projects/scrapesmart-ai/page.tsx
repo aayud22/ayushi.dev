@@ -15,11 +15,24 @@ export const metadata: Metadata = {
     description:
       "Case study for ScrapeSmart AI, an AI-powered web scraper that reads any website URL and answers user questions with intelligent, concise responses.",
     url: "https://ayushi-dev.vercel.app/projects/scrapesmart-ai",
+    siteName: "Ayushi's Portfolio",
+    images: [
+      {
+        url: "https://ayushi-dev.vercel.app/images/hero_banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ScrapeSmart AI Case Study",
+      },
+    ],
+    locale: "en_US",
+    type: "article",
   },
   twitter: {
+    card: "summary_large_image",
     title: "ScrapeSmart AI Case Study | Ayushi",
     description:
       "Case study for ScrapeSmart AI, an AI-powered web scraper that reads any website URL and answers user questions with intelligent, concise responses.",
+    images: ["https://ayushi-dev.vercel.app/images/hero_banner.jpg"],
   },
 };
 
