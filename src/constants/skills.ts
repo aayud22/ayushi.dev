@@ -8,14 +8,14 @@ export interface Skill {
 export const CORE_SKILLS: Skill[] = [
   { name: "React.js", detail: "Reusable components, hooks, state, performance" },
   { name: "Next.js", detail: "App Router, routing, SSR/SSG, SEO" },
-  { name: "TypeScript", detail: "Types, interfaces, safer refactors" },
+  { name: "JavaScript", detail: "ES6+, async/await, clean code" },
   { name: "Tailwind CSS", detail: "Responsive UI with utility-first styling" },
   { name: "Node.js", detail: "Server-side logic, async workflows" },
   { name: "MongoDB", detail: "Schema design, queries, aggregation" },
 ];
 
 export const SECONDARY_SKILLS: Skill[] = [
-  { name: "JavaScript", detail: "ES6+, async/await, clean code" },
+  { name: "TypeScript", detail: "Types, interfaces, safer refactors" },
   { name: "Redux Toolkit", detail: "Predictable state management and slices" },
   { name: "Material UI", detail: "MUI components, theming, rapid UI builds" },
   { name: "Express.js", detail: "Routes, middleware, API architecture" },

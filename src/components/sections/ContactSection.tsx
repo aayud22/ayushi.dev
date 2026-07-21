@@ -5,12 +5,12 @@ import { CopyIconButton } from "@/components/ui/CopyIconButton";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-16 md:py-24">
+    <section id="contact" className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
       <Container>
         <div className="flex flex-col gap-10 md:flex-row md:items-center">
           <div className="w-full md:basis-5/12 md:self-auto">
-            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-              Let&apos;s <span className="font-extrabold">talk</span> for
+            <h2 className="text-4xl font-bold tracking-tight text-black">
+              Let&apos;s <span className="text-slate-400">talk</span> for
               <br />
               Something special
             </h2>
@@ -42,6 +42,17 @@ export function ContactSection() {
                 <CopyIconButton textToCopy="+918780684875" />
               </div>
 
+            </div>
+
+            <div className="mt-8">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://calendly.com/aayushid81/30min"
+                className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition-colors"
+              >
+                Book a 30-min Call
+              </a>
             </div>
           </div>
 
