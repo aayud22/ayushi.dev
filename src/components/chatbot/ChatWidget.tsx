@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 type Message = {
   role: "user" | "model";
@@ -100,6 +102,10 @@ export default function ChatWidget() {
     }
   };
 
+  const remainingQuestions = STARTER_QUESTIONS.filter(
+    (q) => !messages.some((m) => m.role === "user" && m.content === q)
+  );
+
   return (
     <>
       {/* FAB toggle button */}
@@ -143,22 +149,6 @@ export default function ChatWidget() {
               </p>
             </div>
 
-            {/* Starter chips — only shown when chat is empty */}
-            {messages.length === 0 && (
-              <div className="chat-chips">
-                {STARTER_QUESTIONS.map((q) => (
-                  <button
-                    key={q}
-                    onClick={() => sendMessage(q)}
-                    className="chat-chip"
-                    disabled={loading}
-                  >
-                    {q}
-                  </button>
-                ))}
-              </div>
-            )}
-
             {/* Conversation */}
             {messages.map((msg, i) => (
               <div
@@ -169,7 +159,13 @@ export default function ChatWidget() {
                     : "chat-bubble--bot"
                 }`}
               >
-                <p style={{ whiteSpace: "pre-wrap" }}>{msg.content}</p>
+                {msg.role === "model" ? (
+                  <div className="markdown-content">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
+                  </div>
+                ) : (
+                  <p style={{ whiteSpace: "pre-wrap" }}>{msg.content}</p>
+                )}
               </div>
             ))}
 
@@ -178,6 +174,22 @@ export default function ChatWidget() {
               <div className="chat-bubble chat-bubble--bot chat-bubble--loading">
                 <Loader2 size={15} className="chat-spinner" />
                 <span>Thinking…</span>
+              </div>
+            )}
+
+            {/* Starter chips — shown when chat is empty, or after bot replies */}
+            {!loading && !capped && (messages.length === 0 || messages[messages.length - 1].role === "model") && remainingQuestions.length > 0 && (
+              <div className="chat-chips" style={{ marginTop: messages.length === 0 ? "2px" : "6px" }}>
+                {remainingQuestions.map((q) => (
+                  <button
+                    key={q}
+                    onClick={() => sendMessage(q)}
+                    className="chat-chip"
+                    disabled={loading}
+                  >
+                    {q}
+                  </button>
+                ))}
               </div>
             )}
 
@@ -262,7 +274,8 @@ export default function ChatWidget() {
           right: 24px;
           z-index: 9997;
           width: 360px;
-          max-height: 500px;
+          height: 600px;
+          max-height: 75vh;
           display: flex;
           flex-direction: column;
           background: #ffffff;
@@ -313,10 +326,12 @@ export default function ChatWidget() {
 
         .chat-bubble {
           max-width: 86%;
-          padding: 9px 13px;
+          padding: 10px 14px;
           border-radius: 14px;
           font-size: 13.5px;
           line-height: 1.5;
+          word-break: break-word;
+          overflow-wrap: break-word;
         }
         .chat-bubble--bot {
           align-self: flex-start;
@@ -329,6 +344,46 @@ export default function ChatWidget() {
           background: #0f172a;
           color: #fff;
           border-bottom-right-radius: 4px;
+        }
+        
+        .markdown-content p {
+          margin-bottom: 0.5em;
+        }
+        .markdown-content p:last-child {
+          margin-bottom: 0;
+        }
+        .markdown-content ul {
+          list-style-type: disc;
+          padding-left: 1.25em;
+          margin-bottom: 0.5em;
+        }
+        .markdown-content ol {
+          list-style-type: decimal;
+          padding-left: 1.25em;
+          margin-bottom: 0.5em;
+        }
+        .markdown-content li {
+          margin-bottom: 0.25em;
+        }
+        .markdown-content strong {
+          font-weight: 600;
+          color: #0f172a;
+        }
+        .markdown-content a {
+          color: #2563eb;
+          text-decoration: underline;
+          font-weight: 500;
+          transition: color 0.15s;
+        }
+        .markdown-content a:hover {
+          color: #1d4ed8;
+        }
+        .markdown-content code {
+          background: rgba(0,0,0,0.05);
+          padding: 0.1em 0.3em;
+          border-radius: 3px;
+          font-family: monospace;
+          font-size: 0.9em;
         }
         .chat-bubble--loading {
           display: flex;
