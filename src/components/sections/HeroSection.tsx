@@ -4,7 +4,7 @@ import { getYearsOfExperience } from "@/constants/experience";
 
 export function HeroSection() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="pt-16 pb-8 md:pt-24 md:pb-12 bg-white">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -24,23 +24,23 @@ export function HeroSection() {
               clean, high-performance solutions.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full">
               <a
                 href="#projects"
-                className="px-8 py-3.5 bg-black text-white font-medium rounded-xl hover:bg-slate-800 transition-colors"
+                className="w-full sm:w-auto text-center px-8 py-3.5 bg-black text-white font-medium rounded-xl hover:bg-slate-800 transition-colors"
               >
                 View My Projects
               </a>
 
               <a
                 href="#contact"
-                className="px-8 py-3.5 border border-black font-medium rounded-xl hover:bg-black hover:text-white transition-colors"
+                className="w-full sm:w-auto text-center px-8 py-3.5 border border-black font-medium rounded-xl hover:bg-black hover:text-white transition-colors"
               >
                 Let&apos;s Collaborate
               </a>
             </div>
 
-            <div className="pt-4 flex items-center gap-6 text-sm text-slate-500">
+            <div className="pt-4 flex flex-wrap items-center justify-center sm:justify-start gap-6 text-sm text-slate-500">
               <div className="flex items-center gap-2">
                 <p className="text-sm text-slate-600">
                   {getYearsOfExperience()}+ Years Experience

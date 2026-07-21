@@ -59,7 +59,7 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="py-16">
+    <section className="py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-10 text-center">
           <h2 className="text-2xl font-medium tracking-tight text-slate-900 sm:text-3xl">

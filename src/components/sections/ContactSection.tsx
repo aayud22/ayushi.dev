@@ -5,7 +5,7 @@ import { CopyIconButton } from "@/components/ui/CopyIconButton";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-16">
+    <section id="contact" className="py-16 md:py-24">
       <Container>
         <div className="flex flex-col gap-10 md:flex-row md:items-center">
           <div className="w-full md:basis-5/12 md:self-auto">

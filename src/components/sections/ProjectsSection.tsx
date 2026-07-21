@@ -88,7 +88,7 @@ function ProjectCard({ p }: { p: Project }) {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-16 md:py-24 bg-white">
       <Container>
         <div className="mx-auto mb-12 text-center">
           <h2 className="text-4xl font-bold tracking-tight text-black">

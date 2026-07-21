@@ -45,6 +45,7 @@ const CursorRings: React.FC = () => {
           borderRadius: "50%",
           mixBlendMode: "difference",
           zIndex: 9999,
+          pointerEvents: "none",
         }}
       />
       {/* Middle ring - White border with Difference blend */}
@@ -61,6 +62,7 @@ const CursorRings: React.FC = () => {
           borderRadius: "50%",
           mixBlendMode: "difference",
           zIndex: 9999,
+          pointerEvents: "none",
         }}
       />
       {/* Inner ring - Solid white dot for maximum visibility with Difference blend */}
@@ -77,6 +79,7 @@ const CursorRings: React.FC = () => {
           borderRadius: "50%",
           mixBlendMode: "difference",
           zIndex: 9999,
+          pointerEvents: "none",
         }}
       />
     </div>

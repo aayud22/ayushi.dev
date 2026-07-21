@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/Container";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 
 function NavLink({ href, label }: { href: string; label: string }) {
   return (
@@ -10,10 +11,11 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <Container>
         <div className="flex h-16 w-full items-center justify-between">
-          <a href="/#top" className="text-sm font-semibold text-slate-900">
+          <a href="/#top" className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+            <img src="/icon.svg" alt="" className="h-6 w-6" aria-hidden="true" />
             Ayushi.dev
           </a>
 
@@ -25,12 +27,15 @@ export function SiteHeader() {
             <NavLink href="/#contact" label="Contact" />
           </nav>
 
-          <a
-            className="inline-flex h-10 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-800"
-            href="/#contact"
-          >
-            Hire Me
-          </a>
+          <div className="flex items-center gap-2 md:gap-4">
+            <a
+              className="hidden md:inline-flex h-10 items-center justify-center rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white hover:bg-slate-800"
+              href="/#contact"
+            >
+              Hire Me
+            </a>
+            <MobileMenu />
+          </div>
         </div>
       </Container>
     </header>

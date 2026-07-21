@@ -49,7 +49,7 @@ function ExperienceItem({ item }: { item: ExperienceItem }) {
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-slate-950 py-20">
+    <section id="experience" className="bg-slate-950 py-16 md:py-24">
       <Container>
         <div className="mx-auto mb-12 text-center">
           <h2 className="text-4xl font-bold tracking-tight text-white">
