@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { getYearsOfExperience } from "@/constants/experience";
+import ChatWidget from "@/components/chatbot/ChatWidget";
 
 const SITE_TITLE = "Ayushi | Full Stack Developer & Next.js Expert";
 const JOB_TITLE = "Full Stack Developer & Next.js Expert";
@@ -128,6 +129,7 @@ export default function RootLayout({
       <body className="bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
         {children}
         <Analytics />
+        <ChatWidget />
       </body>
     </html>
   );
