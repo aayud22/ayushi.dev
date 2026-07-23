@@ -1,8 +1,10 @@
 import "./globals.css";
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { getYearsOfExperience } from "@/constants/experience";
 import ChatWidget from "@/components/chatbot/ChatWidget";
+import { getYearsOfExperience } from "@/constants/experience";
+import GoogleAnalyticsPageview from "@/components/analytics/GoogleAnalyticsPageview";
 
 const SITE_TITLE = "Ayushi | Full Stack Developer & Next.js Expert";
 const JOB_TITLE = "Full Stack Developer & Next.js Expert";
@@ -114,8 +116,10 @@ export default function RootLayout({
     ]
   };
 
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -126,7 +130,26 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body className="bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white">
+      <body className="bg-slate-50 text-slate-900 antialiased selection:bg-slate-900 selection:text-white" suppressHydrationWarning>
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}', {
+                  anonymize_ip: true
+                });
+              `}
+            </Script>
+            <GoogleAnalyticsPageview gaId={gaId} />
+          </>
+        )}
         {children}
         <Analytics />
         <ChatWidget />

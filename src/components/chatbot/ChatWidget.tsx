@@ -74,7 +74,14 @@ export default function ChatWidget() {
         });
 
         const data = await res.json();
-        const replyText = data.reply ?? "Sorry, something went wrong. Please try again.";
+        let replyText = data.reply;
+        if (!replyText) {
+          if (res.status === 429 || data.error === "Rate limit exceeded") {
+            replyText = "Getting a lot of questions right now — try again in a moment.";
+          } else {
+            replyText = "Sorry, something went wrong. Please try again.";
+          }
+        }
 
         setMessages((prev) => [
           ...prev,
@@ -126,7 +133,7 @@ export default function ChatWidget() {
             <div className="chat-header-info">
               <span className="chat-header-dot" aria-hidden="true" />
               <div>
-                <p className="chat-header-name">Ayushi's Assistant</p>
+                <p className="chat-header-name">Ayushi&apos;s Assistant</p>
                 <p className="chat-header-sub">Ask me anything about Ayushi</p>
               </div>
             </div>

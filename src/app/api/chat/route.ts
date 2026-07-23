@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { GoogleGenAI } from "@google/genai";
-import { SYSTEM_PROMPT } from "@/content/chatbot-context";
+import { GoogleGenAI, ApiError } from "@google/genai";
+import { SYSTEM_PROMPT } from "../../../content/chatbot-context";
+import type { Content, GenerateContentResponse } from "@google/genai";
 
 const MAX_MESSAGE_LENGTH = 500;
 
@@ -38,8 +39,8 @@ export async function POST(req: Request) {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    // Build conversation history for the API
-    const chatHistory = (history ?? []).map((msg) => ({
+    // Build conversation history
+    const chatHistory: Content[] = (history ?? []).map((msg) => ({
       role: msg.role,
       parts: [{ text: msg.content }],
     }));
@@ -50,15 +51,62 @@ export async function POST(req: Request) {
       history: chatHistory,
     });
 
-    const response = await chat.sendMessage({ message: message.trim() });
-    const text = response.text;
+    let response: GenerateContentResponse;
+    let attempt = 0;
+    const maxAttempts = 2;
+
+    while (attempt < maxAttempts) {
+      try {
+        response = await chat.sendMessage({ message: message.trim() });
+        break;
+      } catch (error) {
+        attempt++;
+
+        // Type-safe error handling
+        const isApiError = error instanceof ApiError;
+        const status = isApiError ? error.status : undefined;
+        const errorMessage = isApiError ? error.message : String(error);
+
+        const isTransient =
+          status === 429 ||
+          status === 503 ||
+          status === 408 ||
+          /timeout|rate limit|exhausted|503|429/i.test(errorMessage);
+
+        if (isTransient && attempt < maxAttempts) {
+          console.warn(`Transient chat API error (status ${status}). Retrying in 1s (Attempt ${attempt}/${maxAttempts})...`);
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          continue;
+        } else {
+          throw error;
+        }
+      }
+    }
+
+    const text = response!.text;
 
     return NextResponse.json({ reply: text });
   } catch (error) {
-    console.error("Chat API error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    // Type-safe outer catch
+    let status = 500;
+    let errorMessage = "Internal server error";
+
+    if (error instanceof ApiError) {
+      if (error.status === 429) {
+        status = 429;
+        errorMessage = "Rate limit exceeded";
+      } else if (error.status) {
+        status = error.status;
+      }
+    }
+
+    console.error("Chat API error:", {
+      name: error instanceof Error ? error.name : "Unknown",
+      status: error instanceof ApiError ? error.status : undefined,
+      message: error instanceof Error ? error.message : String(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+
+    return NextResponse.json({ error: errorMessage }, { status });
   }
 }
