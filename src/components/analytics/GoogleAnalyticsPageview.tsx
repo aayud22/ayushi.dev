@@ -1,6 +1,13 @@
 "use client";
-import { usePathname, useSearchParams } from "next/navigation";
+
 import { useEffect, Suspense } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 function PageviewTracker() {
   const pathname = usePathname();
@@ -9,8 +16,9 @@ function PageviewTracker() {
   useEffect(() => {
     const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
     if (!gaId) return;
+
     const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
-    // @ts-ignore
+
     window.gtag?.("config", gaId, {
       page_path: url,
     });
@@ -20,7 +28,7 @@ function PageviewTracker() {
 }
 
 export function GoogleAnalyticsPageview() {
-  return (
+  return (  
     <Suspense fallback={null}>
       <PageviewTracker />
     </Suspense>
