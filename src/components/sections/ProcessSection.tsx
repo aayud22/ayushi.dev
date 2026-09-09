@@ -11,7 +11,7 @@ export function ProcessSection() {
             How I <span className="text-slate-400">Work</span>
           </h2>
           <p className="mt-3 text-white/70">
-            A transparent, milestone-driven approach to every project.
+            A clear, collaborative process from idea to launch.
           </p>
         </div>
 

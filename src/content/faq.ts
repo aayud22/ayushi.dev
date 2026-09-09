@@ -7,13 +7,13 @@ export type FAQItem = {
 export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "availability",
-    question: "Are you available for full-time remote roles or freelance projects?",
-    answer: "Both — I'm currently open to full-time remote opportunities and freelance/contract work, especially ambitious, large-scale projects.",
+    question: "Are you available for freelance projects?",
+    answer: "Yes — I'm available for freelance and contract projects, especially web applications, dashboards, and modern frontend experiences.",
   },
   {
     id: "tech-stack",
     question: "What's your tech stack?",
-    answer: "Next.js, React, TypeScript, Tailwind CSS, Node.js, and MongoDB — with hands-on experience across the MERN stack and AI integration.",
+    answer: "My primary stack is React.js, Next.js, TypeScript, JavaScript, and Tailwind CSS. I also work with TanStack Query, Redux Toolkit, REST APIs, Node.js, Supabase, and MongoDB.",
   },
   {
     id: "response-time",
@@ -23,7 +23,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: "international-clients",
     question: "Do you work with international/overseas clients?",
-    answer: "Yes — comfortable with async communication and overlapping time zones.",
+    answer: "Yes — I'm comfortable working with international clients, async communication, and overlapping time zones.",
   },
   {
     id: "pricing",

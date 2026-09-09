@@ -4,8 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { getYearsOfExperience } from "@/constants/experience";
 import ChatWidget from "@/components/chatbot/ChatWidget";
 
-const SITE_TITLE = "Ayushi | Full Stack Developer & Next.js Expert";
-const JOB_TITLE = "Full Stack Developer & Next.js Expert";
+const SITE_TITLE = "Ayushi | Frontend Developer | React.js & Next.js";
+const JOB_TITLE = "Frontend Developer | React.js & Next.js";
 const yearsExp = getYearsOfExperience();
 
 export const metadata: Metadata = {

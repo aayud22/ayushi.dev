@@ -14,14 +14,12 @@ export function HeroSection() {
                 Hi, I&apos;m Ayushi
               </h1>
               <p className="mt-4 text-2xl md:text-3xl text-slate-600 font-light">
-                Full Stack Developer & Next.js Expert
+                Frontend Developer | React.js & Next.js
               </p>
             </div>
 
             <p className="text-lg text-slate-600 max-w-lg">
-              I craft fast, scalable, and delightful digital experiences using
-              Next.js, React, and modern AI tools. I turn complex problems into
-              clean, high-performance solutions.
+              I craft fast, scalable, and user-focused web experiences using React.js, Next.js, and modern frontend technologies. I turn complex problems into clean, high-performance solutions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -51,7 +49,7 @@ export function HeroSection() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                 </span>
-                <span>Open to new opportunities</span>
+                <span>Open to freelance & collaboration opportunities</span>
               </div>
             </div>
           </div>

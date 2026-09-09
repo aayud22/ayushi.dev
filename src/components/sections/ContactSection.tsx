@@ -12,7 +12,7 @@ export function ContactSection() {
             <h2 className="text-4xl font-bold tracking-tight text-black">
               Let&apos;s <span className="text-slate-400">talk</span> for
               <br />
-              Something special
+              something great together
             </h2>
             <p className="mt-4 max-w-md text-sm leading-7 text-slate-600">
               I&apos;m always open to freelance opportunities, especially ambitious and large-scale projects.
