@@ -57,14 +57,14 @@ export function TestimonialsSection() {
             Client <span className="font-extrabold">Testimonials</span>
           </h2>
           <p className="text-slate-600 mt-2">What clients and partners say about working with me</p>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <Link
               href="/review"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 px-4 py-2 rounded-full transition-colors shadow-sm"
             >
               ★ Share your feedback / Leave a review
             </Link>
-          </div>
+          </div> */}
         </div>
 
         <TestimonialsMarquee items={testimonials} />
