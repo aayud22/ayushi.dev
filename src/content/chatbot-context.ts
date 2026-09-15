@@ -45,7 +45,7 @@ function buildContext(): string {
 IDENTITY & BASICS
 -----------------
 Name: Ayushi Diyora
-Title: Full Stack Developer & Next.js Expert
+Title: Frontend Developer | React.js & Next.js
 Location: Surat, Gujarat, India
 Years of Experience: ${yearsExp}+ years (since June 2022)
 Open to: Full-time remote roles and freelance/contract projects

@@ -80,7 +80,7 @@ export function SkillsSection() {
         {/* Secondary Skills */}
         <div className="mt-12 text-center max-w-2xl mx-auto">
           <p className="text-sm text-slate-500 mb-4">
-            Also familiar with:
+            Additional Skills:
           </p>
           <ul
             className="flex flex-wrap justify-center gap-2"

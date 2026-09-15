@@ -24,6 +24,17 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
+    title: "Lumina Metrics",
+    description: "Modern SaaS analytics dashboard with interactive data visualizations, KPI tracking, activity insights, and responsive management interfaces.",
+    image: "/images/lumina_metrics.jpg",
+    tags: ["Next.js", "TypeScript", "React.js", "Recharts"],
+    liveUrl: "https://lumina-metrics-ad.vercel.app/",
+    githubUrl: "https://github.com/aayud22/lumina-metrics-AD",
+    hasCaseStudy: false,
+    caseStudyUrl: "",
+  },
+  {
+    id: 3,
     title: "Growchief",
     description: "Modern agricultural platform interface with smooth animations, intuitive UX, and clean design system. Focused on delivering exceptional user experience for farmers and stakeholders.",
     image: "/images/grow_chief.jpg",
@@ -34,7 +45,7 @@ export const PROJECTS: Project[] = [
     caseStudyUrl: "",
   },
   {
-    id: 3,
+    id: 4,
     title: "Personal Portfolio",
     description: "High-performance developer portfolio built with Next.js 15, Tailwind CSS, and Framer Motion. Features smooth animations, excellent lighthouse scores, and a strong personal brand presence.",
     image: "/images/portfolio.jpg",
