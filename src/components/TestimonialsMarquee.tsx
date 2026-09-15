@@ -37,18 +37,24 @@ export function TestimonialsMarquee({
     return () => media.removeListener(onChange);
   }, []);
 
-  const loopItems = useMemo(() => {
-    const base = items.length ? items : [];
-    return [...base, ...base];
+  // Only animate if there are more than 3 items and user hasn't requested reduced motion
+  const shouldAnimate = items.length > 3 && !reduceMotion;
+
+  // Duplicate items only when animating for continuous loop
+  const displayItems = useMemo(() => {
+    if (items.length > 3) {
+      return [...items, ...items];
+    }
+    return items;
   }, [items]);
 
   return (
     <div
-      className={[
-        "marquee relative overflow-hidden",
-        reduceMotion ? "overflow-x-auto" : "",
-        className ?? "",
-      ].join(" ")}
+      className={cn(
+        "relative overflow-hidden",
+        shouldAnimate ? "marquee" : "",
+        className
+      )}
       style={
         {
           "--marquee-duration": `${durationMs}ms`,
@@ -56,14 +62,16 @@ export function TestimonialsMarquee({
       }
     >
       <div
-        className={[
-          "marquee__track flex w-max items-stretch gap-6 py-8",
-          reduceMotion ? "animate-none" : "",
-        ].join(" ")}
+        className={cn(
+          "flex items-stretch gap-6 py-8",
+          shouldAnimate
+            ? "marquee__track w-max"
+            : "w-full justify-center flex-wrap"
+        )}
       >
-        {loopItems.map((t, idx) => {
+        {displayItems.map((t, idx) => {
           const baseIndex = items.length ? idx % items.length : 0;
-          const isActive = baseIndex === 1;
+          const isActive = items.length > 1 && baseIndex === 1;
           const initials = t.name
             .split(" ")
             .filter(Boolean)

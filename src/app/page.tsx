@@ -9,7 +9,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
-// import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -29,7 +29,9 @@ export default function Home() {
         <ScrollReveal>
           <ProjectsSection />
         </ScrollReveal>
-        {/* <TestimonialsSection /> */}
+        <ScrollReveal>
+          <TestimonialsSection />
+        </ScrollReveal>
         <ScrollReveal>
           <ProcessSection />
         </ScrollReveal>

@@ -46,6 +46,17 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 4,
+    title: "TG Immigration",
+    description: "A modern, responsive website built for TG Immigration to establish a professional digital presence and clearly showcase their immigration services. Focused on clean UI, responsive layouts, intuitive navigation, and a user-friendly experience across devices.",
+    image: "/images/tg-immigration.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
+    liveUrl: "https://tgimmigration.com",
+    githubUrl: "",
+    hasCaseStudy: false,
+    caseStudyUrl: "",
+  },
+  {
+    id: 5,
     title: "Personal Portfolio",
     description: "High-performance developer portfolio built with Next.js 15, Tailwind CSS, and Framer Motion. Features smooth animations, excellent lighthouse scores, and a strong personal brand presence.",
     image: "/images/portfolio.jpg",
