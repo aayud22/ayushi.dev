@@ -10,10 +10,10 @@ export function ContactSection() {
         <div className="flex flex-col gap-10 md:flex-row md:items-center">
           <div className="w-full md:basis-5/12 md:self-auto">
             <h2 className="text-4xl font-bold tracking-tight text-black">
-              Let&apos;s <span className="text-slate-400">talk</span> for
-              <br />
-              something great together
-            </h2>
+  Let&apos;s <span className="text-slate-400">build</span>
+  <br />
+  something great together
+</h2>
             <p className="mt-4 max-w-md text-sm leading-7 text-slate-600">
               I&apos;m always open to freelance opportunities, especially ambitious and large-scale projects.
               If you have an idea, collaboration, or any questions, feel free to reach out.
