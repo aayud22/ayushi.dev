@@ -28,24 +28,24 @@ export function AboutSection() {
             </h2>
 
             <div className="space-y-5 text-[15px] leading-relaxed text-slate-600">
-              <p>
-                With over {yearsOfExperience} years as a Senior Web Developer, I
-                design and build fast, scalable, and delightful digital
-                experiences using modern technologies.
-              </p>
+  <p>
+    With over {yearsOfExperience} years as a Frontend Developer, I
+    design and build fast, scalable, and delightful web
+    experiences using React.js and Next.js.
+  </p>
 
-              <p>
-                I specialize in Next.js, React, Tailwind CSS, and AI integration
-                — turning complex requirements into clean, high-performance
-                applications that users love.
-              </p>
+  <p>
+    I specialize in Next.js, React, TypeScript, Tailwind CSS, and AI
+    integration, turning complex requirements into clean,
+    high-performance applications that users love.
+  </p>
 
-              <p>
-                My approach combines pixel-perfect design with robust backend
-                architecture, ensuring every project is reliable, efficient, and
-                built for real-world impact.
-              </p>
-            </div>
+  <p>
+    My approach combines pixel-perfect UI with clean, maintainable
+    code and solid API integration, ensuring every project is
+    reliable, performant, and built for real-world impact.
+  </p>
+</div>
 
             <div className="pt-4">
               <p className="text-sm text-slate-500">
