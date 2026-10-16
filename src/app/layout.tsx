@@ -6,7 +6,7 @@ import ChatWidget from "@/components/chatbot/ChatWidget";
 import { getYearsOfExperience } from "@/constants/experience";
 import { GoogleAnalyticsPageview } from "@/components/analytics/GoogleAnalyticsPageview";
 
-const SITE_TITLE = "Ayushi | Frontend Developer | React.js & Next.js";
+const SITE_TITLE = "Ayushi Diyora | Frontend Developer | React.js & Next.js";
 const JOB_TITLE = "Frontend Developer | React.js & Next.js";
 const yearsExp = getYearsOfExperience();
 
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     description: `Portfolio of Ayushi, a passionate ${JOB_TITLE} building performant web apps.`,
     images: ["https://ayushi-dev.vercel.app/images/hero_banner.jpg"],
   },
+  verification: {
+    google: "google5cf5120b23054abd.html",
+  },
   // GEO (Geographic) Optimization
   other: {
     "geo.region": "IN-GJ",
@@ -80,7 +83,7 @@ export default function RootLayout({
     knowsAbout: ["Next.js", "React", "Node.js", "MongoDB", "Express.js", "Tailwind CSS", "TypeScript", "Full Stack Development", "MERN Stack"],
     sameAs: [
       "https://github.com/aayud22",
-      "https://www.linkedin.com/in/ayushi-diyora-0aa453208/"
+      "https://www.linkedin.com/in/ayushie-diyora"
     ],
     email: "aayushid81@gmail.com"
   };
