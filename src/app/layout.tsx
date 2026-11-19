@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "fMJzsrlRcdAyDRIyX7gUhqMoZeDMDsHbepeOoa2-CWk",
+    other: {
+      "msvalidate.01": "D6C5D45776672C74761BA9D185A7755D",
+    },
   },
   // GEO (Geographic) Optimization
   other: {
