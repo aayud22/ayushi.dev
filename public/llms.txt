@@ -1,0 +1,31 @@
+# Ayushi Diyora
+
+> Frontend Developer specializing in React.js, Next.js, and TypeScript with 2+ years of experience building fast, scalable web applications and intuitive user interfaces.
+
+## About
+Ayushi Diyora is a Frontend Developer based in Surat, Gujarat, India. She specializes in building production-grade web applications, interactive dashboards, and responsive digital products using modern web technologies including Next.js, React, TypeScript, and Tailwind CSS.
+
+- Website: https://ayushi-dev.vercel.app
+- GitHub: https://github.com/aayud22
+- LinkedIn: https://www.linkedin.com/in/ayushie-diyora
+- Email: aayushid81@gmail.com
+- Calendly: https://calendly.com/aayushid81/30min
+
+## Core Skills
+- **Frontend**: Next.js (App Router), React.js, TypeScript, JavaScript, Tailwind CSS, Framer Motion, HTML5, CSS3
+- **State & Data**: TanStack Query (React Query), Redux Toolkit, Context API, REST APIs
+- **Backend & Database**: Node.js, Express.js, MongoDB, Mongoose
+- **Tooling & Practices**: Git, GitHub, Vercel, Responsive UI, Core Web Vitals Optimization, SEO / AEO
+
+## Key Projects
+- [ScrapeSmart AI](https://scrape-smart-ai.vercel.app/): AI-powered web scraper that extracts content from any website URL and answers questions conversationally. Case study available at https://ayushi-dev.vercel.app/projects/scrapesmart-ai.
+- [Lumina Metrics](https://lumina-metrics-ad.vercel.app/): Modern SaaS analytics dashboard with interactive data visualizations, KPI tracking, and responsive management interfaces.
+- [Growchief](https://prod-grow-chief-nine.vercel.app/): Agricultural platform interface featuring fluid animations, clean design system, and responsive UX.
+- [TG Immigration](https://tgimmigration.com): Clean, client-centric digital platform for an immigration consultancy.
+
+## Pages & Navigation
+- [Home](https://ayushi-dev.vercel.app): Full portfolio, featured projects, experience, and testimonials.
+- [Projects](https://ayushi-dev.vercel.app/projects): Comprehensive portfolio of client and personal projects.
+- [Skills](https://ayushi-dev.vercel.app/skills): Detailed technical competencies and proficiency levels.
+- [Contact](https://ayushi-dev.vercel.app/contact): Get in touch via contact form or Calendly booking.
+- [Review](https://ayushi-dev.vercel.app/review): Client testimonials and review submission.

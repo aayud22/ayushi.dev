@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["https://ayushi-dev.vercel.app/images/hero_banner.jpg"],
   },
   verification: {
-    google: "google5cf5120b23054abd.html",
+    google: "fMJzsrlRcdAyDRIyX7gUhqMoZeDMDsHbepeOoa2-CWk",
   },
   // GEO (Geographic) Optimization
   other: {
