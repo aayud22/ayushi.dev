@@ -52,7 +52,7 @@ Open to: Full-time remote roles and freelance/contract projects
 Response time: Usually within 24 hours via email
 Email: aayushid81@gmail.com
 GitHub: https://github.com/aayud22
-LinkedIn: https://www.linkedin.com/in/ayushi-diyora-0aa453208/
+LinkedIn: https://www.linkedin.com/in/ayushie-diyora
 Calendly / Book a call: https://calendly.com/aayushid81/30min
 
 CORE SKILLS

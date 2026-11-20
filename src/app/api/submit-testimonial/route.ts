@@ -83,12 +83,14 @@ export async function POST(req: NextRequest) {
       message:
         "Thank you so much! Your testimonial has been submitted successfully. ❤️",
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Submit Testimonial Error:", error);
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Something went wrong. Please try again.";
     return NextResponse.json(
-      {
-        error: error?.message || "Something went wrong. Please try again.",
-      },
+      { error: message },
       { status: 500 },
     );
   }

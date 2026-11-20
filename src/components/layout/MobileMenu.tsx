@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export function MobileMenu() {
@@ -21,49 +22,49 @@ export function MobileMenu() {
 
       {isOpen && (
         <div className="absolute left-0 top-16 w-full bg-white border-b border-slate-200 shadow-lg py-4 px-6 flex flex-col gap-4 z-50">
-          <a
+          <Link
             href="/#about"
             onClick={closeMenu}
             className="flex items-center text-base font-medium text-slate-700 hover:text-slate-900 h-12 border-b border-slate-100"
           >
             About
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#skills"
             onClick={closeMenu}
             className="flex items-center text-base font-medium text-slate-700 hover:text-slate-900 h-12 border-b border-slate-100"
           >
             Skills
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#experience"
             onClick={closeMenu}
             className="flex items-center text-base font-medium text-slate-700 hover:text-slate-900 h-12 border-b border-slate-100"
           >
             Experience
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#projects"
             onClick={closeMenu}
             className="flex items-center text-base font-medium text-slate-700 hover:text-slate-900 h-12 border-b border-slate-100"
           >
             Projects
-          </a>
-          <a
+          </Link>
+          <Link
             href="/#contact"
             onClick={closeMenu}
             className="flex items-center text-base font-medium text-slate-700 hover:text-slate-900 h-12 border-b border-slate-100"
           >
             Contact
-          </a>
+          </Link>
           
-          <a
+          <Link
             href="/#contact"
             onClick={closeMenu}
             className="mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-slate-900 px-4 text-base font-semibold text-white hover:bg-slate-800"
           >
             Hire Me
-          </a>
+          </Link>
         </div>
       )}
     </div>

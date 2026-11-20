@@ -1,6 +1,5 @@
 import { PROCESS_STEPS } from "@/content/process";
 import { Container } from "@/components/layout/Container";
-import { cn } from "@/lib/utils";
 
 export function ProcessSection() {
   return (
